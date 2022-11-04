@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Macroeconometrics Research Report"
+  title: "Macroeconometrics"
   navbar:
     background: "light"
 
