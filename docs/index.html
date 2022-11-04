@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Your Name">
+<meta name="author" content="Tomasz Woźniak">
 
-<title>Macroeconometrics Research Report - Title of your work</title>
+<title>Macroeconometrics Research Report - Useful Distributions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -79,25 +79,6 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -137,6 +118,7 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -163,10 +145,8 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#a-standard-normal-distribution" id="toc-a-standard-normal-distribution" class="nav-link active" data-scroll-target="#a-standard-normal-distribution">A Standard Normal Distribution</a>
   <ul class="collapse">
-  <li><a href="#a-simple-example" id="toc-a-simple-example" class="nav-link" data-scroll-target="#a-simple-example">A Simple Example</a></li>
-  <li><a href="#some-hints" id="toc-some-hints" class="nav-link" data-scroll-target="#some-hints">Some Hints</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
@@ -177,7 +157,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Title of your work</h1>
+<h1 class="title">Useful Distributions</h1>
 </div>
 
 
@@ -187,7 +167,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Your Name </p>
+             <p>Tomasz Woźniak </p>
           </div>
   </div>
     
@@ -198,113 +178,54 @@ div.csl-indent {
 </header>
 
 <blockquote class="blockquote">
-<p><strong>Abstract.</strong> This is a suggested formatting for your abstract. This <strong>quarto</strong> document is a template for your report. It includes some basic ways of working with such documents. You are invited to learn more about developing online reports with this technology.</p>
-<p><strong>Keywords.</strong> bsvars, impulse responses, quarto, R, tax shocks</p>
+<p><strong>Abstract.</strong> This document includes useful information about statistical distributions and how to use them in Macroeconometrics.</p>
+<p><strong>Keywords.</strong> standard normal</p>
 </blockquote>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>This is a template repository for the Research Report for <strong>Macroeconometrics</strong>. Learn more about about developing online reports with <strong>quarto</strong> at <a href="https://quarto.org/">quarto.org</a>.</p>
-<section id="a-simple-example" class="level2">
-<h2 class="anchored" data-anchor-id="a-simple-example">A Simple Example</h2>
-<p>This is a Quarto document in which we can cite the <strong>bsvars</strong> package by <span class="citation" data-cites="wozniakBsvarsBayesianEstimation2022">Woźniak (<a href="#ref-wozniakBsvarsBayesianEstimation2022" role="doc-biblioref">2022</a>)</span>. Look for more info at <a href="https://cran.r-project.org/package=bsvars">package CRAN website</a>.</p>
-<p>Simply load the package by running</p>
+<section id="a-standard-normal-distribution" class="level1">
+<h1>A Standard Normal Distribution</h1>
+<p>This is a distribution for a real-values random variable <span class="math inline">\(x\)</span> with the expected value equal to 0 and the variance equal to 1. The pdf has the form of <span class="math display">\[\begin{align}
+x\sim\mathcal{N}(0,1) = \frac{1}{\sqrt{2\pi}}\exp\left\{-\frac{1}{2}x^2 \right\}
+\end{align}\]</span></p>
+<p>It is an important one in Macroeconometrics and Bayesian inference because random draws from this distribution are used to provide random draws from other distributions.</p>
+<p>To sample random draws in <strong>R</strong> use the <strong>base</strong> package <code>rnorm</code> function:</p>
 <div class="cell">
-
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(N)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] -0.6264538  0.1836433 -0.8356286  1.5952808  0.3295078 -0.8204684
+ [7]  0.4874291  0.7383247  0.5757814 -0.3053884</code></pre>
 </div>
-<p>The code below performs simple computations for sampling posterior draws of the impulse responses. The first line uploads the data from the package,another sets the seed for reproducible computations, and then the pipe <code>|&gt;</code> is used to streamline the model specification, estimation including the first burn-in run to obtain convergence and finally, the computed impulse responses are saved in object <code>irf</code>.</p>
+</div>
+<p>A much faster sampler is provided in package <strong>RcppZiggurat</strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(us_fiscal_lsuw)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>us_fiscal_lsuw <span class="sc">|&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  specify_bsvar<span class="sc">$</span><span class="fu">new</span>(<span class="at">p =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">estimate</span>(<span class="at">S =</span> <span class="dv">1000</span>, <span class="at">show_progress =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">estimate</span>(<span class="at">S =</span> <span class="dv">2000</span>, <span class="at">show_progress =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">compute_impulse_responses</span>(<span class="at">horizon =</span> <span class="dv">20</span>) <span class="ot">-&gt;</span> irf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>RcppZiggurat<span class="sc">::</span><span class="fu">zsetseed</span>(<span class="dv">1</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>RcppZiggurat<span class="sc">::</span><span class="fu">zrnorm</span>(N)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] -1.48088583  0.99911956 -0.48980206 -0.03395798 -1.13199362 -0.46507077
+ [7]  0.17342663  0.37928228  0.15221294 -0.27056297</code></pre>
 </div>
-<p>The code above is visible as the <strong>R</strong> chunk contains the setting <code>#| echo: true</code>.</p>
-<p><a href="#tbl-irf">Table&nbsp;1</a> reports the posterior means of the gross domestic product response to an unanticipated tax increase by 1 pp.</p>
+</div>
+<p>The speed comparison of sampling 1000 draws:</p>
 <div class="cell">
-<div class="cell-output-display">
-<div id="tbl-irf" class="anchored">
-<table class="table table-sm table-striped">
-<caption>Table 1: Impulse response of gdp to unanticipated tax increase by 1 pp.&nbsp;within two years</caption>
-<colgroup>
-<col style="width: 25%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 7%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 7%">
-<col style="width: 8%">
-<col style="width: 8%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">0</th>
-<th style="text-align: right;">1</th>
-<th style="text-align: right;">2</th>
-<th style="text-align: right;">3</th>
-<th style="text-align: right;">4</th>
-<th style="text-align: right;">5</th>
-<th style="text-align: right;">6</th>
-<th style="text-align: right;">7</th>
-<th style="text-align: right;">8</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">change in gdp [%]</td>
-<td style="text-align: right;">0.199</td>
-<td style="text-align: right;">0.184</td>
-<td style="text-align: right;">0.17</td>
-<td style="text-align: right;">0.159</td>
-<td style="text-align: right;">0.148</td>
-<td style="text-align: right;">0.139</td>
-<td style="text-align: right;">0.13</td>
-<td style="text-align: right;">0.123</td>
-<td style="text-align: right;">0.116</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>microbenchmark<span class="sc">::</span><span class="fu">microbenchmark</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">base =</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">rcpp =</span> RcppZiggurat<span class="sc">::</span><span class="fu">zrnorm</span>(<span class="dv">1000</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Unit: microseconds
+ expr    min      lq     mean  median      uq     max neval
+ base 46.292 48.6880 50.69023 49.4590 52.0835  71.334   100
+ rcpp  8.292  9.1885 12.92272  9.7925 10.6470 129.417   100</code></pre>
 </div>
 </div>
-</div>
-<p><a href="#fig-irf">Figure&nbsp;1</a> presents the same reaction over the horizon of five years.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-irf" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="index_files/figure-html/fig-irf-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure 1: Impulse response of gdp to unanticipated tax increase by 1 pp.&nbsp;within five years</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="some-hints" class="level2">
-<h2 class="anchored" data-anchor-id="some-hints">Some Hints</h2>
-<p>Have a look at how to work with <strong>RStudio</strong> and <strong>GitHub</strong> at: <a href="https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r/">How to use git and GitHub with R</a>.</p>
-<p>These are many different ways of how to work with references in <strong>RStudio</strong>: <a href="https://posit.co/blog/rstudio-1-4-preview-citations/">Preview Citations</a>.</p>
-<p>To make all the <strong>R</strong> code visible on the website change the settings in the preabmble of this document to:</p>
-<pre><code>execute:
-  echo: true</code></pre>
-</section>
 <section id="references" class="level2 unnumbered">
-
-
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 
 
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-wozniakBsvarsBayesianEstimation2022" class="csl-entry" role="doc-biblioentry">
-Woźniak, Tomasz. 2022. <em>Bsvars: Bayesian Estimation of Structural Vector Autoregressive Models</em>. R Package. <a href="https://cran.r-project.org/package=bsvars">https://cran.r-project.org/package=bsvars</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
